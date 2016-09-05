@@ -15,7 +15,10 @@ cupenyaApp.controller( "TagController", TagController);
 
 		// TODO: improved string parsing, Regexp xxx <x@xx.xx>
 		function parseString(str) {
-			var tags = str.split(",");
+			var tags = str.match(/\w+.*?<.+?@.+?>/g);
+			if (!tags) {
+				tags = str.split(/[,;]/);
+			}
 			return tags;
 		}
 		
