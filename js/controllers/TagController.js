@@ -49,6 +49,7 @@ cupenyaApp.controller( "TagController", TagController);
 					if (ev.target.value.length == 0) {
 						$scope.taglist.deleteLastTag();
 					}
+					$scope.suggestionlist.filteritems(ev.target.value);
 					break;
 					
 				case KEYS.enter:
