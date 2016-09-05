@@ -13,12 +13,10 @@ cupenyaApp.controller( "TagController", TagController);
 			$scope.suggestionlist.set(response.data);
 		});
 
+		// TODO: improved string parsing, Regexp xxx <x@xx.xx>
 		function parseString(str) {
 			var tags = str.split(";");
-			for (var tag in tags) {
-				var newTag = $scope.taglist.newTag(tags[tag]);
-				$scope.suggestionlist.addItem(newTag);
-			}
+			return tags;
 		}
 		
 		$scope.keyUp = function(ev) {
@@ -46,9 +44,12 @@ cupenyaApp.controller( "TagController", TagController);
 				case KEYS.enter:
 					if ($scope.suggestionlist.selected) {
 						$scope.taglist.addTag($scope.suggestionlist.selected);
-						var newTag = $scope.suggestionlist.selected;
 					} else {
-						parseString(ev.target.value);
+						var newTag, tags = parseString(ev.target.value);
+						for (var tag in tags) {
+							newTag = $scope.taglist.newTag(tags[tag]);
+							$scope.suggestionlist.addItem(newTag);
+						}
 					}
 					ev.target.value = "";
 					// fall through to default condition
