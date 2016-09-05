@@ -22,6 +22,7 @@ cupenyaApp.controller( "TagController", TagController);
 		$scope.keyUp = function(ev) {
 
 			var KEYS = {
+				backspace: 8,
 				enter: 13,
 				up: 38,
 				down: 40,
@@ -40,7 +41,13 @@ cupenyaApp.controller( "TagController", TagController);
 				case KEYS.left:
 					$scope.suggestionlist.selectPrior();
 					break;
-										
+						
+				case KEYS.backspace:
+					if (ev.target.value.length == 0) {
+						$scope.taglist.deleteLastTag();
+					}
+					break;
+					
 				case KEYS.enter:
 					if ($scope.suggestionlist.selected) {
 						$scope.taglist.addTag($scope.suggestionlist.selected);

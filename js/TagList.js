@@ -22,5 +22,16 @@ var TagList = function() {
 		self.items.push( newTag );
 		return newTag;
 	}
+	self.deleteLastTag = function() {
+		var lastTag = self.items.length-1;
+		if (lastTag >= 0) {
+			if (self.items[lastTag].todelete) {
+				self.removeTag(lastTag);
+			} else {
+				self.items[lastTag].todelete = true;
+			}
+		}
+	}
+	
 	return self;
 }

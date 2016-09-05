@@ -27,7 +27,7 @@
 		<div class="container" ng-controller="TagController">
 			<div id="tags">
 				<ul class="tag-list">
-					<li ng-repeat="tag in taglist.items track by $index" class="tag-item">{{tag.displayName}} <a class="remove-button" ng-click="taglist.removeTag($index)">x</a></li>
+					<li ng-repeat="tag in taglist.items track by $index" class="tag-item" ng-class="{selected: tag.todelete}">{{tag.displayName}} <a class="remove-button" ng-click="taglist.removeTag($index)">x</a></li>
 				</ul>
 				<input class="input" ng-keyup="keyUp($event)" placeholder="Enter email">
 			</div>
