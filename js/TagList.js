@@ -4,8 +4,13 @@ var TagList = function() {
 	
 	self.items = [];
 	
-	self.addTag = function(tag) {
-		self.items.push(tag);
+	self.addTag = function(newTag) {
+		for (tag in self.items) {
+			if (self.items[tag].mail == newTag.mail) {
+				return;
+			}
+		}
+		self.items.push(newTag);
 	}
 	self.removeTag = function(index) {
 		delete self.items[index].todelete;
