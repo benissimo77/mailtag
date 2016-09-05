@@ -2,9 +2,9 @@
 
 cupenyaApp.controller( "TagController", TagController);
 
-    TagController.$inject = ['$scope', '$window', '$http'];
+    TagController.$inject = ['$scope', '$http'];
 
-    function TagController($scope, $window, $http) {
+    function TagController($scope, $http) {
 
 		$scope.taglist = TagList();
 		$scope.suggestionlist = SuggestionList();
