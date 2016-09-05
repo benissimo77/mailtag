@@ -39,4 +39,4 @@ const AutoComplete = React.createClass({
 	}
 });
 
-export default AutoComplete;
+cupenyaApp.value('AutoCompleteComponent', AutoComplete)
