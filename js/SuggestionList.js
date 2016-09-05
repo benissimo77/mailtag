@@ -30,6 +30,9 @@ var SuggestionList = function() {
 		if (self.items.length == 0 || val.length == 0) {
 			self.reset();
 		} else {
+			if (self.selected && self.items.filter(function(item) { return item.mail === self.selected.mail; }).length == 0) {
+				self.selected = null;
+			}
 			if (!self.selected) {
 				self.select(0);
 			}
