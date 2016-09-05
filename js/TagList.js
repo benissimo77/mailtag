@@ -8,6 +8,7 @@ var TagList = function() {
 		self.items.push(tag);
 	}
 	self.removeTag = function(index) {
+		delete self.items[index].todelete;
 		self.items.splice(index, 1);
 	}
 	self.newTag = function(str) {
