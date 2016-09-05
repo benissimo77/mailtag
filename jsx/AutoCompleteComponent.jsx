@@ -1,5 +1,5 @@
 
-var AutoComplete = React.createClass({
+const AutoComplete = React.createClass({
 	propTypes: {
 		items: React.PropTypes.array.isRequired,
 		index: React.PropTypes.number.isRequired,
@@ -39,4 +39,4 @@ var AutoComplete = React.createClass({
 	}
 });
 
-cupenyaApp.value('AutoCompleteComponent', AutoComplete)
+export default AutoComplete;
